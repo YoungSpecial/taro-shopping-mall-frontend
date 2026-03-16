@@ -1,0 +1,71 @@
+/* 产品详情页面样式 */
+
+/* 图片轮播动画 */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* 按钮悬停效果 */
+.product-detail-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* 变体选择器悬停效果 */
+.variant-option:hover {
+  background-color: #f0f0f0;
+  border-color: #ff6b6b;
+}
+
+/* 数量选择器动画 */
+.quantity-button:active {
+  transform: scale(0.95);
+}
+
+/* 滚动条样式 */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .product-detail-container {
+    padding: 12px;
+  }
+  
+  .product-image-container {
+    height: 300px;
+  }
+}
+
+/* 加载动画 */
+.loading-spinner {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

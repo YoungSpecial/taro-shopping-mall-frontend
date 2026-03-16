@@ -1,0 +1,281 @@
+.order-history-page {
+  min-height: 100vh;
+  background-color: #f8f9fa;
+  padding: 16px;
+}
+
+.history-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding: 12px 0;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.header-title {
+  font-size: 20px;
+  font-weight: bold;
+  color: #212529;
+}
+
+.back-btn {
+  padding: 6px 12px;
+  background-color: white;
+  border: 1px solid #dee2e6;
+  border-radius: 6px;
+  font-size: 12px;
+  color: #495057;
+}
+
+.filter-section {
+  margin-bottom: 20px;
+}
+
+.filter-scroll {
+  white-space: nowrap;
+}
+
+.filter-btn {
+  display: inline-block;
+  padding: 8px 16px;
+  margin-right: 8px;
+  background-color: white;
+  border: 1px solid #e9ecef;
+  border-radius: 20px;
+  font-size: 14px;
+  color: #6c757d;
+}
+
+.filter-btn.active {
+  background-color: #ff6b6b;
+  border-color: #ff6b6b;
+  color: white;
+}
+
+.filter-count {
+  margin-left: 4px;
+  font-size: 12px;
+  opacity: 0.8;
+}
+
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.empty-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #212529;
+  margin: 16px 0 8px;
+}
+
+.empty-subtitle {
+  font-size: 14px;
+  color: #6c757d;
+  margin-bottom: 24px;
+}
+
+.shop-now-btn {
+  padding: 12px 32px;
+  background-color: #ff6b6b;
+  color: white;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.orders-list {
+  max-height: 70vh;
+}
+
+.order-card {
+  background-color: white;
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.order-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 12px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #f1f3f5;
+}
+
+.order-info {
+  flex: 1;
+}
+
+.order-id {
+  font-size: 14px;
+  font-weight: 600;
+  color: #212529;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.order-date {
+  font-size: 12px;
+  color: #6c757d;
+  display: block;
+}
+
+.order-status {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 8px;
+  border-radius: 12px;
+  margin-left: 8px;
+}
+
+.status-text {
+  font-size: 11px;
+  color: white;
+  font-weight: 500;
+}
+
+.order-items {
+  margin-bottom: 16px;
+}
+
+.order-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid #f8f9fa;
+}
+
+.order-item:last-child {
+  border-bottom: none;
+}
+
+.item-name {
+  flex: 1;
+  font-size: 14px;
+  color: #495057;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin-right: 8px;
+}
+
+.item-quantity {
+  font-size: 13px;
+  color: #6c757d;
+  margin-right: 12px;
+  min-width: 30px;
+}
+
+.item-price {
+  font-size: 14px;
+  color: #ff6b6b;
+  font-weight: 600;
+  min-width: 70px;
+  text-align: right;
+}
+
+.more-items {
+  padding: 8px 0;
+  text-align: center;
+}
+
+.more-text {
+  font-size: 13px;
+  color: #6c757d;
+}
+
+.order-footer {
+  padding-top: 12px;
+  border-top: 1px solid #f1f3f5;
+}
+
+.order-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.total-label {
+  font-size: 14px;
+  color: #495057;
+  font-weight: 500;
+}
+
+.total-price {
+  font-size: 16px;
+  color: #ff6b6b;
+  font-weight: bold;
+}
+
+.order-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.action-btn {
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.detail-btn {
+  background-color: #f8f9fa;
+  border: 1px solid #dee2e6;
+  color: #495057;
+}
+
+.reorder-btn {
+  background-color: #ff6b6b;
+  color: white;
+}
+
+.support-btn {
+  background-color: #4ecdc4;
+  color: white;
+}
+
+.help-section {
+  text-align: center;
+  padding: 20px;
+  background-color: white;
+  border-radius: 12px;
+  margin-top: 20px;
+}
+
+.help-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #212529;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.help-text {
+  font-size: 14px;
+  color: #6c757d;
+  margin-bottom: 4px;
+  display: block;
+}
+
+.help-text:last-child {
+  margin-bottom: 0;
+}
