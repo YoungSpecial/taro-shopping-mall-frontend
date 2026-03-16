@@ -44,4 +44,6 @@ yarn install
 ```bash
 # H5 开发
 npm run dev:h5
+# 小程序开发
+npm run dev:weapp
 ```

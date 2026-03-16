@@ -110,7 +110,7 @@ export default function OrderHistory() {
     // TODO: Implement reorder functionality
   }
 
-  const handleContactSupport = (orderId: string) => {
+  const handleContactSupport = (orderId: number) => {
     showToast({
       title: `联系客服关于订单 ${orderId}`,
       icon: 'none',
@@ -224,7 +224,7 @@ export default function OrderHistory() {
                     查看详情
                   </Button>
 
-                  {order.status === 'delivered' && (
+                   {order.status === 'PAID' && (
                     <Button
                       className="action-btn reorder-btn"
                       onClick={() => handleReorder(order.id)}
@@ -234,7 +234,7 @@ export default function OrderHistory() {
                     </Button>
                   )}
 
-                  {(order.status === 'processing' || order.status === 'shipped') && (
+                  {order.status === 'PAID' && (
                     <Button
                       className="action-btn support-btn"
                       onClick={() => handleContactSupport(order.id)}
