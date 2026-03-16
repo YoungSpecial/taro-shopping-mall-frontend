@@ -470,11 +470,88 @@ export class ApiService {
     if (shouldUseMockApi) {
       // Mock implementation
       await delay(300);
+      const mockOrders = [
+        {
+          id: 1,
+          orderNumber: 'ORDER-20250315-001',
+          items: [
+            { productId: '1', productName: '无线蓝牙耳机', price: 299, quantity: 1, image: 'https://via.placeholder.com/80x80' },
+            { productId: '2', productName: '手机保护壳', price: 49, quantity: 2, image: 'https://via.placeholder.com/80x80' }
+          ],
+          totalAmount: 397,
+          shippingAddress: {
+            id: '1',
+            name: '张三',
+            phone: '13800138000',
+            province: '北京市',
+            city: '北京市',
+            district: '朝阳区',
+            address: '建国路88号SOHO现代城A座',
+            postalCode: '100022',
+            isDefault: true
+          },
+          shippingMethod: 'standard',
+          shippingCost: 8,
+          paymentMethod: 'simulated',
+          status: 'PAID' as 'PAID',
+          createdAt: '2025-03-15T14:30:00Z'
+        },
+        {
+          id: 2,
+          orderNumber: 'ORDER-20250314-002',
+          items: [
+            { productId: '3', productName: '智能手表', price: 899, quantity: 1, image: 'https://via.placeholder.com/80x80' }
+          ],
+          totalAmount: 899,
+          shippingAddress: {
+            id: '2',
+            name: '李四',
+            phone: '13900139000',
+            province: '上海市',
+            city: '上海市',
+            district: '浦东新区',
+            address: '陆家嘴环路100号',
+            postalCode: '200120',
+            isDefault: false
+          },
+          shippingMethod: 'express',
+          shippingCost: 15,
+          paymentMethod: 'simulated',
+          status: 'PAID' as 'PAID',
+          createdAt: '2025-03-14T10:15:00Z'
+        },
+        {
+          id: 3,
+          orderNumber: 'ORDER-20250312-003',
+          items: [
+            { productId: '4', productName: '笔记本电脑', price: 5999, quantity: 1, image: 'https://via.placeholder.com/80x80' },
+            { productId: '5', productName: '鼠标', price: 89, quantity: 1, image: 'https://via.placeholder.com/80x80' }
+          ],
+          totalAmount: 6088,
+          shippingAddress: {
+            id: '1',
+            name: '张三',
+            phone: '13800138000',
+            province: '北京市',
+            city: '北京市',
+            district: '朝阳区',
+            address: '建国路88号SOHO现代城A座',
+            postalCode: '100022',
+            isDefault: true
+          },
+          shippingMethod: 'free',
+          shippingCost: 0,
+          paymentMethod: 'simulated',
+          status: 'PAID' as 'PAID',
+          createdAt: '2025-03-12T16:45:00Z'
+        }
+      ];
+      
       return {
-        content: [],
+        content: mockOrders,
         page,
         size: pageSize,
-        totalElements: 0
+        totalElements: mockOrders.length
       };
     } else {
       return RealApiServiceImpl.getOrders(page, pageSize);

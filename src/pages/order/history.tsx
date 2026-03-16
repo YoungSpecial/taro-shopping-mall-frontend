@@ -55,7 +55,7 @@ const mockOrders = [
 
 export default function OrderHistory() {
   const [orders, setOrders] = useState<OrderResponse[]>([]);
-  const [filter, setFilter] = useState<'all' | 'processing' | 'shipped' | 'delivered' | 'cancelled'>('all')
+  const [filter, setFilter] = useState<'all' | 'PAID' | 'CANCELLED'>('all')
 
   const getOrders = async () => {
     const response = await ApiService.getOrders(1, 10);
@@ -74,19 +74,15 @@ export default function OrderHistory() {
   const getStatusText = (status: string) => {
     const statusMap: Record<string, string> = {
       'PAID': '已付款',
-      'shipped': '已发货',
-      'delivered': '已送达',
-      'cancelled': '已取消'
+      'CANCELLED': '已取消'
     }
     return statusMap[status] || '未知状态'
   }
 
   const getStatusColor = (status: string) => {
     const colorMap: Record<string, string> = {
-      'processing': theme.colors.warning,
-      'shipped': theme.colors.secondary,
       'PAID': theme.colors.success,
-      'cancelled': theme.colors.danger
+      'CANCELLED': theme.colors.danger
     }
     return colorMap[status] || theme.colors.gray500
   }
@@ -94,9 +90,7 @@ export default function OrderHistory() {
   const getStatusIcon = (status: string) => {
     const iconMap: Record<string, string> = {
       'PAID': 'clock',
-      'shipped': 'truck',
-      'delivered': 'check',
-      'cancelled': 'close'
+      'CANCELLED': 'close'
     }
     return iconMap[status] as any || 'info'
   }
@@ -107,7 +101,7 @@ export default function OrderHistory() {
     })
   }
 
-  const handleReorder = (orderId: string) => {
+  const handleReorder = (orderId: number) => {
     showToast({
       title: `重新订购 ${orderId}`,
       icon: 'success',
@@ -133,10 +127,8 @@ export default function OrderHistory() {
 
   const filterButtons = [
     { id: 'all', label: '全部', count: orders.length },
-    { id: 'processing', label: '处理中', count: orders.filter(o => o.status === 'processing').length },
-    { id: 'shipped', label: '已发货', count: orders.filter(o => o.status === 'shipped').length },
-    { id: 'delivered', label: '已送达', count: orders.filter(o => o.status === 'delivered').length },
-    { id: 'cancelled', label: '已取消', count: orders.filter(o => o.status === 'cancelled').length }
+    { id: 'PAID', label: '已付款', count: orders.filter(o => o.status === 'PAID').length },
+    { id: 'CANCELLED', label: '已取消', count: orders.filter(o => o.status === 'CANCELLED').length }
   ]
 
   return (
@@ -176,7 +168,7 @@ export default function OrderHistory() {
         <View className="empty-state">
                   <Icon name="package" size="xl" color={theme.colors.gray400} />
           <Text className="empty-title">暂无订单</Text>
-          <Text className="empty-subtitle">您还没有{filter === 'all' ? '' : filter === 'PAID' ? '处理中' : filter === 'shipped' ? '已发货' : filter === 'delivered' ? '已送达' : '已取消'}的订单</Text>
+          <Text className="empty-subtitle">您还没有{filter === 'all' ? '' : filter === 'PAID' ? '已付款' : '已取消'}的订单</Text>
           <Button
             className="shop-now-btn"
             onClick={handleBackToHome}
