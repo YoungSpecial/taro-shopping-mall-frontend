@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text } from '@tarojs/components';
+import { View, Text, Input } from '@tarojs/components';
 import { theme } from '../../styles/theme';
 import Icon from '../atoms/Icon';
 
@@ -230,10 +230,10 @@ const PriceRatingFilter: React.FC<PriceRatingFilterProps> = ({
                   padding: theme.spacing.xs,
                 }}>
                   <Text style={{ fontSize: theme.typography.fontSize.sm, color: theme.colors.gray600, marginRight: theme.spacing.xs }}>¥</Text>
-                  <input
+                   <Input
                     type="number"
-                    value={localMinPrice}
-                    onChange={(e) => handleMinPriceChange(e.target.value)}
+                    value={localMinPrice?.toString() || ''}
+                    onInput={(e) => handleMinPriceChange(e.detail.value)}
                     placeholder="最低价"
                     style={{
                       flex: 1,
@@ -244,7 +244,6 @@ const PriceRatingFilter: React.FC<PriceRatingFilterProps> = ({
                       backgroundColor: 'transparent',
                       minWidth: 0,
                     }}
-                    min={0}
                   />
                 </View>
               </View>
@@ -260,10 +259,10 @@ const PriceRatingFilter: React.FC<PriceRatingFilterProps> = ({
                   padding: theme.spacing.xs,
                 }}>
                   <Text style={{ fontSize: theme.typography.fontSize.sm, color: theme.colors.gray600, marginRight: theme.spacing.xs }}>¥</Text>
-                  <input
+                   <Input
                     type="number"
-                    value={localMaxPrice}
-                    onChange={(e) => handleMaxPriceChange(e.target.value)}
+                    value={localMaxPrice?.toString() || ''}
+                    onInput={(e) => handleMaxPriceChange(e.detail.value)}
                     placeholder="最高价"
                     style={{
                       flex: 1,
@@ -274,7 +273,6 @@ const PriceRatingFilter: React.FC<PriceRatingFilterProps> = ({
                       backgroundColor: 'transparent',
                       minWidth: 0,
                     }}
-                    min={0}
                   />
                 </View>
               </View>

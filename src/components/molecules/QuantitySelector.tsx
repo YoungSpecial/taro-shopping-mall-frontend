@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text } from '@tarojs/components';
+import { View, Text, Input } from '@tarojs/components';
 import { theme } from '../../styles/theme';
 import Icon from '../atoms/Icon';
 
@@ -117,7 +117,7 @@ const QuantitySelector: React.FC<QuantitySelectorProps> = ({
   };
 
   const handleInputChange = (e: any) => {
-    const newValue = e.target.value;
+    const newValue = e.detail.value;
     setInputValue(newValue);
     
     // 只允许数字
@@ -252,13 +252,13 @@ const QuantitySelector: React.FC<QuantitySelectorProps> = ({
           
           {/* 编辑模式输入框 */}
           {isEditing && !disabled && (
-            <input
-              type="text"
-              value={inputValue}
-              onChange={handleInputChange}
+             <Input
+              type="number"
+              value={inputValue.toString()}
+              onInput={handleInputChange}
               onBlur={handleInputBlur}
               onFocus={handleInputFocus}
-              autoFocus
+              focus={isEditing}
               style={{
                 position: 'absolute',
                 top: 0,
@@ -270,12 +270,11 @@ const QuantitySelector: React.FC<QuantitySelectorProps> = ({
                 color: theme.colors.gray800,
                 textAlign: 'center',
                 backgroundColor: theme.colors.white,
-                border: `2px solid ${theme.colors.primary}`,
-                borderRadius: theme.borderRadius.md,
+                border: `1px solid ${theme.colors.primary}`,
+                borderRadius: theme.borderRadius.sm,
                 outline: 'none',
-                padding: 0,
-                margin: 0,
                 boxSizing: 'border-box',
+                zIndex: 1
               }}
             />
           )}

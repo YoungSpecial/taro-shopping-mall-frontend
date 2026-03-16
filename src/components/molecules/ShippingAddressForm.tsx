@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Text } from '@tarojs/components'
+import { View, Text, Input } from '@tarojs/components'
 import { ShippingAddress } from '../../types'
 import Icon from '../atoms/Icon'
 import { theme } from '../../styles/theme'
@@ -19,8 +19,8 @@ const ShippingAddressForm: React.FC<ShippingAddressFormProps> = ({
   showTitle = true,
   compact = false
 }) => {
-  const handleChange = (field: keyof ShippingAddress) => (e: React.ChangeEvent<HTMLInputElement>) => {
-    onChange(field, e.target.value)
+  const handleChange = (field: keyof ShippingAddress) => (e: any) => {
+    onChange(field, e.detail.value)
   }
 
   if (compact) {
@@ -57,11 +57,11 @@ const ShippingAddressForm: React.FC<ShippingAddressFormProps> = ({
           }}>
             收货人
           </Text>
-          <input
+           <Input
             type="text"
             placeholder="请输入收货人姓名"
             value={address.name}
-            onChange={handleChange('name')}
+            onInput={handleChange('name')}
             style={{
               width: '100%',
               padding: '8px 12px',
@@ -91,11 +91,11 @@ const ShippingAddressForm: React.FC<ShippingAddressFormProps> = ({
           }}>
             手机号码
           </Text>
-          <input
-            type="tel"
+           <Input
+            type="number"
             placeholder="请输入手机号码"
             value={address.phone}
-            onChange={handleChange('phone')}
+            onInput={handleChange('phone')}
             style={{
               width: '100%',
               padding: '8px 12px',
@@ -161,11 +161,11 @@ const ShippingAddressForm: React.FC<ShippingAddressFormProps> = ({
             }}>
               收货人
             </Text>
-            <input
+             <Input
               type="text"
               placeholder="请输入收货人姓名"
               value={address.name}
-              onChange={handleChange('name')}
+              onInput={handleChange('name')}
               style={{
                 width: '100%',
                 padding: '10px 12px',
@@ -195,11 +195,11 @@ const ShippingAddressForm: React.FC<ShippingAddressFormProps> = ({
             }}>
               手机号码
             </Text>
-            <input
-              type="tel"
+             <Input
+              type="number"
               placeholder="请输入手机号码"
               value={address.phone}
-              onChange={handleChange('phone')}
+              onInput={handleChange('phone')}
               style={{
                 width: '100%',
                 padding: '10px 12px',
@@ -234,11 +234,11 @@ const ShippingAddressForm: React.FC<ShippingAddressFormProps> = ({
             }}>
               省份
             </Text>
-            <input
+             <Input
               type="text"
               placeholder="请输入省份"
               value={address.province}
-              onChange={handleChange('province')}
+              onInput={handleChange('province')}
               style={{
                 width: '100%',
                 padding: '10px 12px',
@@ -268,11 +268,11 @@ const ShippingAddressForm: React.FC<ShippingAddressFormProps> = ({
             }}>
               城市
             </Text>
-            <input
+             <Input
               type="text"
               placeholder="请输入城市"
               value={address.city}
-              onChange={handleChange('city')}
+              onInput={handleChange('city')}
               style={{
                 width: '100%',
                 padding: '10px 12px',
@@ -307,11 +307,11 @@ const ShippingAddressForm: React.FC<ShippingAddressFormProps> = ({
             }}>
               区县
             </Text>
-            <input
+             <Input
               type="text"
               placeholder="请输入区县"
               value={address.district}
-              onChange={handleChange('district')}
+              onInput={handleChange('district')}
               style={{
                 width: '100%',
                 padding: '10px 12px',
@@ -341,11 +341,11 @@ const ShippingAddressForm: React.FC<ShippingAddressFormProps> = ({
             }}>
               邮政编码
             </Text>
-            <input
-              type="text"
+             <Input
+              type="number"
               placeholder="请输入邮政编码"
               value={address.postalCode}
-              onChange={handleChange('postalCode')}
+              onInput={handleChange('postalCode')}
               style={{
                 width: '100%',
                 padding: '10px 12px',
@@ -376,11 +376,11 @@ const ShippingAddressForm: React.FC<ShippingAddressFormProps> = ({
           }}>
             详细地址
           </Text>
-          <input
+           <Input
             type="text"
             placeholder="请输入详细地址（街道、门牌号等）"
             value={address.address}
-            onChange={handleChange('address')}
+            onInput={handleChange('address')}
             style={{
               width: '100%',
               padding: '10px 12px',
